@@ -17,7 +17,7 @@ int size = Convert.ToInt32(Console.ReadLine());
 
 string[] array = new string[size];
 int len = 3;
-int pos = 0;
+int index = 0;
 
 for (int i = 0; i < size; i++)
 {
@@ -26,13 +26,13 @@ for (int i = 0; i < size; i++)
 
     if (element.Length <= len)
     {
-        array[pos] = element;
-        pos++;
+        array[index] = element;
+        index++;
     }
 }
 
 Console.WriteLine();
-PrintArray(pos);
+PrintArray(index);
 
 
 //______________________________________
