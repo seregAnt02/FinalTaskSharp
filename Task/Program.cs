@@ -15,7 +15,7 @@
 Console.Write("Сколько элементов Вы хотите ввести? ");
 int size = Convert.ToInt32(Console.ReadLine());
 
-string[] arrayStrings = new string[size];
+string[] array = new string[size];
 int len = 3;
 int pos = 0;
 
@@ -26,22 +26,22 @@ for (int i = 0; i < size; i++)
 
     if (element.Length <= len)
     {
-        arrayStrings[pos] = element;
+        array[pos] = element;
         pos++;
     }
 }
 
 Console.WriteLine();
-PrintArray(arrayStrings);
+PrintArray(pos);
 
-//_______________________________________________________
 
-void PrintArray(string[] array)
+//______________________________________
+
+void PrintArray(int length)
 {
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i] != null)
-            Console.Write("длинна меньше либо равна 3 символа: " + array[i] + "\r\n");
+    for (int i = 0; i < length; i++)
+    {        
+        Console.Write("длинна меньше либо равна 3 символа: " + array[i] + "\r\n");
     }
     Console.WriteLine();
 }
