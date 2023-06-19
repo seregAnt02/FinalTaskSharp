@@ -39,9 +39,9 @@ PrintArray(pos);
 
 void PrintArray(int length)
 {
+    string temp = "[";
     for (int i = 0; i < length; i++)
-    {        
-        Console.Write("длинна меньше либо равна 3 символа: " + array[i] + "\r\n");
-    }
-    Console.WriteLine();
+        temp += i == 0 ? array[i] : "," + array[i];   
+    temp += "]";
+    Console.WriteLine(temp);
 }
