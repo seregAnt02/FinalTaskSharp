@@ -11,65 +11,66 @@
 */
 
 //РЕШЕНИЕ 1 (с использованием двух массивов)
-Console.Write("Сколько элементов Вы хотите ввести? ");
-int size = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Сколько элементов Вы хотите ввести? ");
+    int size = Convert.ToInt32(Console.ReadLine());
 
-string[] arrayStrings = new string[size];
-for (int i = 0; i < size; i++)
-{
-    Console.WriteLine($"Введите {i+1}-й элемент: ");
-    string element = Convert.ToString(Console.ReadLine());
-    arrayStrings[i] = element;
-}
-
-string[] arrayFinal = new string[size];
-int len = 3;
-int pos = 0;
-
-for (int j = 0; j < size; j++)
-{
-    if (arrayStrings[j].Length <= len)
+    string[] arrayStrings = new string[size];
+    for (int i = 0; i < size; i++)
     {
-        arrayFinal[pos] = arrayStrings[j];
-        pos++;
+        Console.WriteLine($"Введите {i+1}-й элемент: ");
+        string element = Convert.ToString(Console.ReadLine());
+        arrayStrings[i] = element;
     }
-}
 
-Console.WriteLine();
-PrintArray(arrayFinal);
+    string[] arrayFinal = new string[size];
+    int len = 3;
+    int pos = 0;
+
+    for (int j = 0; j < size; j++)
+    {
+        if (arrayStrings[j].Length <= len)
+        {
+            arrayFinal[pos] = arrayStrings[j];
+            pos++;
+        }
+    }
+
+    Console.WriteLine();
+    PrintArray(arrayFinal);
 
 // РЕШЕНИЕ 2 (с использованием одного массива)
 
-Console.Write("Сколько элементов Вы хотите ввести? ");
-int size = Convert.ToInt32(Console.ReadLine());
+    // Console.Write("Сколько элементов Вы хотите ввести? ");
+    // int size = Convert.ToInt32(Console.ReadLine());
 
-string[] arrayStrings = new string[size];
-int len = 3;
-int pos = 0;
+    // string[] arrayStrings = new string[size];
+    // int len = 3;
+    // int pos = 0;
 
-for (int i = 0; i < size; i++)
-{
-    Console.WriteLine($"Введите {i + 1}-й элемент: ");
-    string element = Convert.ToString(Console.ReadLine());
+    // for (int i = 0; i < size; i++)
+    // {
+    //     Console.WriteLine($"Введите {i + 1}-й элемент: ");
+    //     string element = Convert.ToString(Console.ReadLine());
 
-    if (element.Length <= len)
-    {
-        arrayStrings[pos] = element;
-        pos++;
-    }
-}
+    //     if (element.Length <= len)
+    //     {
+    //         arrayStrings[pos] = element;
+    //         pos++;
+    //     }
+    // }
 
-Console.WriteLine();
-PrintArray(pos);
+    // Console.WriteLine();
+    // PrintArray(arrayStrings);
 
 
 //______________________________________
 
-void PrintArray(int length)
+void PrintArray(string[] array)
 {
     string temp = "[";
-    for (int i = 0; i < length; i++)
-        temp += i == 0 ? arrayStrings[i] : "," + arrayStrings[i];   
+    for (int i = 0; i < array.Length; i++)
+    if(array[i] != null)
+        temp += i == 0 ? array[i] : "," + array[i];   
     temp += "]";
     Console.WriteLine(temp);
 }
