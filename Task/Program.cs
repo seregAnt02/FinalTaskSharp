@@ -10,12 +10,40 @@
 [“Russia”, “Denmark”, “Kazan”] → []
 */
 
-// РЕШЕНИЕ 
+//РЕШЕНИЕ 1 (с использованием двух массивов)
+Console.Write("Сколько элементов Вы хотите ввести? ");
+int size = Convert.ToInt32(Console.ReadLine());
+
+string[] arrayStrings = new string[size];
+for (int i = 0; i < size; i++)
+{
+    Console.WriteLine($"Введите {i+1}-й элемент: ");
+    string element = Convert.ToString(Console.ReadLine());
+    arrayStrings[i] = element;
+}
+
+string[] arrayFinal = new string[size];
+int len = 3;
+int pos = 0;
+
+for (int j = 0; j < size; j++)
+{
+    if (arrayStrings[j].Length <= len)
+    {
+        arrayFinal[pos] = arrayStrings[j];
+        pos++;
+    }
+}
+
+Console.WriteLine();
+PrintArray(arrayFinal);
+
+// РЕШЕНИЕ 2 (с использованием одного массива)
 
 Console.Write("Сколько элементов Вы хотите ввести? ");
 int size = Convert.ToInt32(Console.ReadLine());
 
-string[] array = new string[size];
+string[] arrayStrings = new string[size];
 int len = 3;
 int pos = 0;
 
@@ -26,7 +54,7 @@ for (int i = 0; i < size; i++)
 
     if (element.Length <= len)
     {
-        array[pos] = element;
+        arrayStrings[pos] = element;
         pos++;
     }
 }
@@ -41,7 +69,7 @@ void PrintArray(int length)
 {
     string temp = "[";
     for (int i = 0; i < length; i++)
-        temp += i == 0 ? array[i] : "," + array[i];   
+        temp += i == 0 ? arrayStrings[i] : "," + arrayStrings[i];   
     temp += "]";
     Console.WriteLine(temp);
 }
